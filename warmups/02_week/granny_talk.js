@@ -15,18 +15,9 @@
 // NO, NOT SINCE incorrect year // whats that sunny
 
 
-// function getYear(minYear, maxYear){
-//     var year = Math.floor(Math.random() * maxYear - minYear) + min;
-// }
-
-// function isUpperCase(str) {
-//     return str === str.toUpperCase();
-// }
-
-
-// isUpperCase("hello"); // false
-// isUpperCase("Hello"); // false
-// isUpperCase("HELLO"); // true
+var grandpaTalk = function() {
+    
+}
 
 
 
@@ -52,6 +43,7 @@ var grannyTalk = function(query) {
 
     console.log (grannyTalk("Hi Grammie"));
     console.log (grannyTalk("I LOVE YOU"));
+    console.log (grannyTalk("I love you, Grammie"));
     console.log (grannyTalk("BYE"));
     console.log (grannyTalk("Bye"));
 

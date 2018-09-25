@@ -1,0 +1,30 @@
+body {
+    width: 1200PX;
+}
+
+article {
+    width: 950px;
+}
+
+img {
+    padding: 5px;
+}
+
+.pics {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.press {
+    display: inline;
+    margin: 0 auto;
+    padding: 0px;
+    border: 5px solid lightgray;
+ }
+
+h4 {
+    font-weight: normal;
+    color: #C3CDE6;;
+}
