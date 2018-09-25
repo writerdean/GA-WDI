@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+div {
+    color: darkblue;
+}
+
+.box {
+    height: 50px;
+    font-size: 10px;
+    
+}
+
+#first {
+    color: red;
+}
+
+
+.first {
+    color: black;
+}
+
+
+.special {
+    background-color: mistyrose;
+}
+/* decendant (based on heirarchy*/
+nav li {
+    color: mistyrose;
+}
+/* direct child */
+ul > li {
+    color: red;
+}
+
+.second_list {
+    background-color: blueviolet;
+}
+
+.yay {
+    display: inline-block;
+    width: 50px;
+    background-color: green;
+}
+
+.yo {
+    background-color: cyan;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: skyblue;
+}

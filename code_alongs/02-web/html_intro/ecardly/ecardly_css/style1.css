@@ -1,0 +1,84 @@
+body {
+    background-color: rgb(201, 193, 193)
+    }
+
+.main {
+    background: rgb(202, 198, 198) url('images/background.jpg') repeat-x;
+    margin: 0 auto;
+    width: 60%;
+}
+
+div {
+    border: 5px solid black;
+    padding: 25px;
+    margin: 25px;
+}
+
+.header-image {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 7%;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: green;
+}
+
+.left {
+    width: 65%;
+    background-color: white;
+}
+
+.left img {
+    width: 100%;
+}
+
+.ecard {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.right {
+    width: 25%;
+    background-color: white;
+}
+
+.right img {
+    display: block;
+    padding: 15px 0;
+}
+
+.footer {
+    text-align: center;
+}
+
+p a {
+    font-weight: bold;
+    color: red;
+}
+
+.nav-heading {
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+nav a {
+    font-size: 18px;
+    color: black;
+    display: block;
+    padding: 5px 0;
+}
+
+.posted {
+    margin-bottom: 15px;
+    border-top: 5px dotted black;
+    border-bottom: 5px solid black;
+}
+
+span {
+    font-weight: bold;
+    color: red;
+}
