@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Bank of Blackadder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="logo">
+            <!-- <img src="http://www.southwalesbusinessclub.co.uk/wp-content/uploads/placelogo_placeholder.jpg" alt="logo"> -->
+        </div>
+
+        <div class="flex-container accounts">
+
+            <div class="savings">
+                <div class="account-name account-box"><p>Savings Account</p></div>
+                <div class="account-box"><p>Your balance is:</p></div>
+                
+                <div class="balance account-box result-div"></div>
+                <!-- Below is a user input -->
+                <div class="amount account-box">amount to withdraw or deposit</div>
+                <div class="btn-group">
+                    <button class="withdraw">Withdraw</button>
+                    <button class="deposit">Deposit</button>
+                </div>
+
+            </div>
+            <div class="checking">
+                    <div class="account-name account-box"><p>Checking Account</p></div>
+                    <div class="account-box"><p>Your balance is:</p></div>
+                    <div class="balance account-box result-div"></div>
+                    <!-- <div class="amount account-box">amount to withdraw or deposit</div> -->
+                    <input type = "number" class="amount">
+                    <div class="btn-group">
+                            <button class="withdraw-btn">Withdraw</button>
+                            <button class="deposit-btn">Deposit</button>
+                        </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

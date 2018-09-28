@@ -1,0 +1,99 @@
+/* * {
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: space-around;
+  }
+
+  p {
+      font-size: 25px;
+  }
+
+  img {
+      height: 15%;
+      width: auto;
+  }
+
+  div {
+      border: 1px solid black;
+      margin: 5px;
+      padding: 5px;
+  }
+
+  .main {
+
+  }
+
+  .logo {
+    text-align: center;
+    width: 25%;
+
+  }
+
+  .accounts {
+    width: 75%;
+
+  }
+  .savings {
+    border: 5px solid black;
+    background-color: gray;
+    width: 35%;
+    float: left;
+
+  }
+  .checking {
+    border: 5px solid black;
+    background-color: gray;
+    width: 35%;
+    float: left;
+
+  }
+
+  .account-name p {
+      margin-block-end: 0;
+      margin: 5px;
+  }
+
+  .account-box {
+      height: 50px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+
+  }
+
+  .balance {
+      height: 50px;
+      font-size: 30px;
+      
+  }
+
+  .amount {
+    width: 75%;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 25px;
+    background-color: lightgreen;
+    overflow: hidden;
+  }
+
+  .btn-group {
+    text-align: center;
+  }
+  button {
+      margin: 5px 15px;
+      padding: 5px;
+      border-radius: 25%;
+      background-color: antiquewhite;
+  } */
+
+
+
+

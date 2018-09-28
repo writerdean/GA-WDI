@@ -1,0 +1,1 @@
+var family = ['bart', 'list', 'maggie', 'homer', 'marg', 'santa']
