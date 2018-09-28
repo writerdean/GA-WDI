@@ -5,7 +5,7 @@ balance: "330.00"
 },
 {
 name: "checking",
-balance: "50.00"
+balance: "5000.00"
 }
 ]
 
@@ -22,33 +22,42 @@ var depositSavings = function(amount) {
 
 var withdrawSavings = function(amount) {
 
+    console.log('Savings withdrawal ' + amount)
 
-    var resultingBalance = result;
-    var overdraftAmount = result - Number(a0.balance);
+    var remainder = Number(a0.balance) - Number(amount)
     
 
-    if(Number(a0.balance) - Number(amount) >= 0) {
+    if( remainder >= 0) {
 
-        var result = Number(a0.balance) - Number(amount);
-        console.log('Savings withdrawal.  New blanace:  ' + result)
-        a0.balance = result;
-    // } else {
-    //     // if(resultingBalance >= a1.balance ) {
-    //     //     a1.balance = a1.balance - overdraftAmount;
-    //     //     a0.balance = a0.balance + overdraftAmount;
+        console.log('Savings withdrawal.  New blanace:  ' + remainder)
+        a0.balance = remainder;
 
-    //     // }
+    } else {
 
-    //     console.log('Sorry, not enough funds available.')
-    // }
+        var overdrawn = Math.abs(remainder);
+
+        if  (  overdrawn  <= Number(a1.balance) ) {
+            // console.log('Do you want to transfer money?')
+            a1.balance = Number(a1.balance) - overdrawn
+            a0.balance = Number(a0.balance) + overdrawn
+            a0.balance = Number(a0.balance) - Number(amount)
+
+
+        } else {
+            console.log('Sorry, not enough funds available.')
+
+        }
+
+     }
 }
-}
 
-// depositSavings(3.75);
-// withdrawSavings(5.13)
-// withdrawSavings(63.75);
-// withdrawSavings(75);
-withdrawSavings(53.75);
+console.log("start a0 balance " + a0.balance)
+console.log("start a1 balance " +a1.balance)   
+
+withdrawSavings(533);
+
+console.log("end a0 balance " + a0.balance)
+console.log("end a1 balance " +a1.balance)   
 
 
 
