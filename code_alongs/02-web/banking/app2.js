@@ -1,16 +1,68 @@
 var accounts = [
 {
 name: "savings",
-balance: "330.00"
+balance: "10"
 },
 {
 name: "checking",
-balance: "5000.00"
+balance: "250"
 }
 ]
 
-var a0 = accounts[0] //savings
-var a1 = accounts[1] //checking
+// getting elements for balance for each account
+var balanceSavings = document.querySelector(".balance-savings")
+var balanceChecking = document.querySelector(".balance-checking")
+
+// getting element for the background for each account
+var backgroundSavings = document.querySelector(".savings")
+var backgroundChecking = document.querySelector(".checking")
+
+var a0 = accounts[0] // savings
+var a1 = accounts[1] // checking
+
+// setting initial display for balance
+balanceSavings.textContent = a0.balance
+balanceChecking.textContent = a1.balance
+
+// getting buttons for each account
+var depositSavings = document.querySelector(".deposit-savings")
+var depositChecking = document.querySelector(".deposit-checking")
+var withdrawSavings = document.querySelector(".withdraw-savings")
+var withdrawChecking = document.querySelector(".withdraw-checking")
+
+// getting input amount for each account box
+
+var inputAmountChecking = Number(document.querySelector(".amountChecking").value) // string
+
+
+
+
+var testSave = function() {
+    console.log('Success! Button clicked!')
+    var inputAmountSavings = document.querySelector(".amountSavings").value // this is a string
+    console.log('Amount entered: ' + inputAmountSavings)
+    a0.balance = Number(inputAmountSavings) + Number(a0.balance)
+    console.log('Deposit successful.  New balance is: ' + a0.balance)
+    updateBalance()
+    document.querySelector(".amountSavings").value = ''
+}
+
+var updateBalance = function() {
+    balanceSavings.textContent = a0.balance
+    balanceChecking.textContent = a1.balance
+    
+    if(a0.balance > Number(0)) {
+        backgroundSavings.style.backgroundColor = "gray"                   
+        } else {
+            backgroundSavings.style.backgroundColor = "red" 
+        }
+    if(a1.balance > 0) {
+        backgroundChecking.style.backgroundColor = "gray"                   
+        } else {
+            backgroundChecking.style.backgroundColor = "red" 
+        }
+}
+
 
 var depositToAccount = function(depositAccount, amount) {
     console.log('Previous balance: ' + depositAccount.balance)
@@ -18,29 +70,36 @@ var depositToAccount = function(depositAccount, amount) {
     console.log('Account deposit of ' + amount + '.  New balance is:  ' + result)
     depositAccount.balance = result;
     console.log(depositAccount.balance)
+    updateBalance();
+
 }
 
-var withdrawSavings = function(amount) {
+var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
 
     console.log('Account withdrawal ' + amount)
 
-    var remainder = Number(a0.balance) - Number(amount)
+    var remainder = Number(withdrawAccount.balance) - Number(amount)
     
 
     if( remainder >= 0) {
 
         console.log('Account withdrawal.  New blanace:  ' + remainder)
-        a0.balance = remainder;
+        withdrawAccount.balance = remainder;
+        updateBalance();
 
     } else {
 
         var overdrawn = Math.abs(remainder);
 
-        if  (  overdrawn  <= Number(a1.balance) ) {
-            // console.log('Do you want to transfer money?')
-            a1.balance = Number(a1.balance) - overdrawn
-            a0.balance = Number(a0.balance) + overdrawn
-            a0.balance = Number(a0.balance) - Number(amount)
+        if  (  overdrawn  <= Number(linkedAccount.balance) ) {
+            console.log('Do you want to transfer money?')
+            linkedAccount.balance = Number(linkedAccount.balance) - overdrawn
+            console.log('New overdraft account balance: ' + linkedAccount.balance)
+            withdrawAccount.balance = Number(0);
+            console.log('Original account balance is now: ' + withdrawAccount.balance)
+
+            updateBalance();
+
 
 
         } else {
@@ -51,13 +110,10 @@ var withdrawSavings = function(amount) {
      }
 }
 
-console.log("start a0 balance " + a0.balance)
-console.log("start a1 balance " +a1.balance)   
-depositToAccount(a0, 300);
-withdrawSavings(650);
-
-console.log("end a0 balance " + a0.balance)
-console.log("end a1 balance " +a1.balance)   
+depositSavings.addEventListener('click', testSave)
+// depositChecking.addEventListener('click', test)
+// withdrawSavings.addEventListener('click', test)
+// withdrawChecking.addEventListener('click', test)
 
 
-
+// depositSavings.addEventListener('click', depositToAccount(a0, inputAmountSavings))

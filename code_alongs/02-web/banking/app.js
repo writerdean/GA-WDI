@@ -8,17 +8,29 @@ name: "checking",
 balance: "250"
 }
 ]
+
+// getting elements for balance for each account
 var balanceSavings = document.querySelector(".balance-savings")
 var balanceChecking = document.querySelector(".balance-checking")
 
+// getting element for the background for each account
 var backgroundSavings = document.querySelector(".savings")
 var backgroundChecking = document.querySelector(".checking")
 
 var a0 = accounts[0] // savings
 var a1 = accounts[1] // checking
 
+// setting initial display for balance
 balanceSavings.textContent = a0.balance
 balanceChecking.textContent = a1.balance
+
+// getting buttons for each account
+var depositSavings = document.querySelector(".deposit-savings")
+var depositChecking = document.querySelector(".deposit-checking")
+var withdrawSavings = document.querySelector(".withdraw-savings")
+var withdrawChecking = document.querySelector(".withdraw-checking")
+
+
 
 var updateBalance = function() {
     balanceSavings.textContent = a0.balance
