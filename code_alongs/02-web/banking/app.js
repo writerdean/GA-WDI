@@ -1,11 +1,11 @@
 var accounts = [
 {
 name: "savings",
-balance: "0.00"
+balance: "10"
 },
 {
 name: "checking",
-balance: "250.00"
+balance: "250"
 }
 ]
 var balanceSavings = document.querySelector(".balance-savings")
@@ -20,18 +20,31 @@ var a1 = accounts[1] // checking
 balanceSavings.textContent = a0.balance
 balanceChecking.textContent = a1.balance
 
+var updateBalance = function() {
+    balanceSavings.textContent = a0.balance
+    balanceChecking.textContent = a1.balance
+    
+    if(a0.balance > Number(0)) {
+        backgroundSavings.style.backgroundColor = "gray"                   
+        } else {
+            backgroundSavings.style.backgroundColor = "red" 
+        }
+    if(a1.balance > 0) {
+        backgroundChecking.style.backgroundColor = "gray"                   
+        } else {
+            backgroundChecking.style.backgroundColor = "red" 
+        }
+}
+
+
 var depositToAccount = function(depositAccount, amount) {
     console.log('Previous balance: ' + depositAccount.balance)
     var result = Number(amount) + Number(depositAccount.balance);
     console.log('Account deposit of ' + amount + '.  New balance is:  ' + result)
     depositAccount.balance = result;
     console.log(depositAccount.balance)
-    if(a0.balance > 0) {
-        backgroundSavings.style.backgroundColor = "gray"                   
-    }
-    if(a1.balance > 0) {
-        backgroundChecking.style.backgroundColor = "gray"                   
-    }
+    updateBalance();
+
 }
 
 var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
@@ -45,6 +58,7 @@ var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
 
         console.log('Account withdrawal.  New blanace:  ' + remainder)
         withdrawAccount.balance = remainder;
+        updateBalance();
 
     } else {
 
@@ -56,12 +70,8 @@ var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
             console.log('New overdraft account balance: ' + linkedAccount.balance)
             withdrawAccount.balance = Number(0);
             console.log('Original account balance is now: ' + withdrawAccount.balance)
-                if(a0.balance === 0) {
-                    backgroundSavings.style.backgroundColor = "red"                   
-                }
-                if(a1.balance === 0) {
-                    backgroundChecking.style.backgroundColor = "red"                   
-                }
+
+            updateBalance();
 
 
 
