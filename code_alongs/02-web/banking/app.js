@@ -1,46 +1,49 @@
 var accounts = [
 {
 name: "savings",
-balance: "330.00"
+balance: "250.00"
 },
 {
 name: "checking",
-balance: "5000.00"
+balance: "100.00"
 }
 ]
 
-var a0 = accounts[0]
-var a1 = accounts[1]
+var a0 = accounts[0] // savings
+var a1 = accounts[1] // checking
 
-var depositSavings = function(amount) {
-    console.log('Previous balance: ' + accounts[0].balance)
-    var result = Number(amount) + Number(accounts[0].balance);
-    console.log('Savings deposit of ' + amount + '.  New balance is:  ' + result)
-    accounts[0].balance = result;
-    console.log(accounts[0].balance)
+var depositToAccount = function(depositAccount, amount) {
+    console.log('Previous balance: ' + depositAccount.balance)
+    var result = Number(amount) + Number(depositAccount.balance);
+    console.log('Account deposit of ' + amount + '.  New balance is:  ' + result)
+    depositAccount.balance = result;
+    console.log(depositAccount.balance)
 }
 
-var withdrawSavings = function(amount) {
+var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
 
-    console.log('Savings withdrawal ' + amount)
+    console.log('Account withdrawal ' + amount)
 
-    var remainder = Number(a0.balance) - Number(amount)
+    var remainder = Number(withdrawAccount.balance) - Number(amount)
     
 
     if( remainder >= 0) {
 
-        console.log('Savings withdrawal.  New blanace:  ' + remainder)
-        a0.balance = remainder;
+        console.log('Account withdrawal.  New blanace:  ' + remainder)
+        withdrawAccount.balance = remainder;
 
     } else {
 
         var overdrawn = Math.abs(remainder);
 
-        if  (  overdrawn  <= Number(a1.balance) ) {
-            // console.log('Do you want to transfer money?')
-            a1.balance = Number(a1.balance) - overdrawn
-            a0.balance = Number(a0.balance) + overdrawn
-            a0.balance = Number(a0.balance) - Number(amount)
+        if  (  overdrawn  <= Number(linkedAccount.balance) ) {
+            console.log('Do you want to transfer money?')
+            linkedAccount.balance = Number(linkedAccount.balance) - overdrawn
+            console.log('New overdraft account balance: ' + linkedAccount.balance)
+            // withdrawAccount.balance = Number(withdrawAccount.balance) + overdrawn
+            // withdrawAccount.balance = Number(withdrawAccount.balance) - Number(amount)
+            withdrawAccount.balance = Number(0);
+            console.log('Original account balance is now: ' + withdrawAccount.balance)
 
 
         } else {
@@ -53,8 +56,8 @@ var withdrawSavings = function(amount) {
 
 console.log("start a0 balance " + a0.balance)
 console.log("start a1 balance " +a1.balance)   
-
-withdrawSavings(533);
+depositToAccount(a0, 100);
+withdrawFromAccount(a1, a0, 650);
 
 console.log("end a0 balance " + a0.balance)
 console.log("end a1 balance " +a1.balance)   
