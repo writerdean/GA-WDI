@@ -32,21 +32,31 @@ var withdrawChecking = document.querySelector(".withdraw-checking")
 
 // getting input amount for each account box
 
-var inputAmountChecking = Number(document.querySelector(".amountChecking").value) // string
+var inputAmountChecking = document.querySelector(".amountChecking") // string
+var inputAmountSavings = document.querySelector(".amountSavings") // this is a string
 
 
-
-
-var testSave = function() {
-    console.log('Success! Button clicked!')
-    var inputAmountSavings = document.querySelector(".amountSavings").value // this is a string
-    console.log('Amount entered: ' + inputAmountSavings)
-    a0.balance = Number(inputAmountSavings) + Number(a0.balance)
-    console.log('Deposit successful.  New balance is: ' + a0.balance)
-    updateBalance()
-    document.querySelector(".amountSavings").value = ''
+// handling deposit to account
+var handleDepositToSaving = function() {
+    depositToAccount(a0, inputAmountSavings.value)
+    inputAmountSavings.value = ''
+}
+var handleDepositToChecking = function() {
+    depositToAccount(a1, inputAmountChecking.value)
+    inputAmountChecking.value = ''
 }
 
+// handle withdrawing from account
+var handleWithdrawFromSavings = function() {
+    withdrawFromAccount(a0, a1, inputAmountSavings.value)
+    inputAmountSavings.value = ''
+}
+var handleWithdrawFromChecking = function() {
+    withdrawFromAccount(a1, a0, inputAmountChecking.value)
+    inputAmountChecking.value = ''
+}
+
+// update account balances
 var updateBalance = function() {
     balanceSavings.textContent = a0.balance
     balanceChecking.textContent = a1.balance
@@ -75,11 +85,8 @@ var depositToAccount = function(depositAccount, amount) {
 }
 
 var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
-
     console.log('Account withdrawal ' + amount)
-
     var remainder = Number(withdrawAccount.balance) - Number(amount)
-    
 
     if( remainder >= 0) {
 
@@ -100,20 +107,16 @@ var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
 
             updateBalance();
 
-
-
         } else {
             console.log('Sorry, not enough funds available.')
 
         }
 
-     }
+    }
 }
 
-depositSavings.addEventListener('click', testSave)
-// depositChecking.addEventListener('click', test)
-// withdrawSavings.addEventListener('click', test)
-// withdrawChecking.addEventListener('click', test)
 
-
-// depositSavings.addEventListener('click', depositToAccount(a0, inputAmountSavings))
+withdrawSavings.addEventListener('click', handleWithdrawFromSavings)
+withdrawChecking.addEventListener('click', handleWithdrawFromChecking)
+depositSavings.addEventListener('click', handleDepositToSaving)
+depositChecking.addEventListener('click', handleDepositToChecking)
