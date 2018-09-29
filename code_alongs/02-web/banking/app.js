@@ -1,16 +1,24 @@
 var accounts = [
 {
 name: "savings",
-balance: "250.00"
+balance: "0.00"
 },
 {
 name: "checking",
-balance: "100.00"
+balance: "250.00"
 }
 ]
+var balanceSavings = document.querySelector(".balance-savings")
+var balanceChecking = document.querySelector(".balance-checking")
+
+var backgroundSavings = document.querySelector(".savings")
+var backgroundChecking = document.querySelector(".checking")
 
 var a0 = accounts[0] // savings
 var a1 = accounts[1] // checking
+
+balanceSavings.textContent = a0.balance
+balanceChecking.textContent = a1.balance
 
 var depositToAccount = function(depositAccount, amount) {
     console.log('Previous balance: ' + depositAccount.balance)
@@ -18,6 +26,12 @@ var depositToAccount = function(depositAccount, amount) {
     console.log('Account deposit of ' + amount + '.  New balance is:  ' + result)
     depositAccount.balance = result;
     console.log(depositAccount.balance)
+    if(a0.balance > 0) {
+        backgroundSavings.style.backgroundColor = "gray"                   
+    }
+    if(a1.balance > 0) {
+        backgroundChecking.style.backgroundColor = "gray"                   
+    }
 }
 
 var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
@@ -40,10 +54,15 @@ var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
             console.log('Do you want to transfer money?')
             linkedAccount.balance = Number(linkedAccount.balance) - overdrawn
             console.log('New overdraft account balance: ' + linkedAccount.balance)
-            // withdrawAccount.balance = Number(withdrawAccount.balance) + overdrawn
-            // withdrawAccount.balance = Number(withdrawAccount.balance) - Number(amount)
             withdrawAccount.balance = Number(0);
             console.log('Original account balance is now: ' + withdrawAccount.balance)
+                if(a0.balance === 0) {
+                    backgroundSavings.style.backgroundColor = "red"                   
+                }
+                if(a1.balance === 0) {
+                    backgroundChecking.style.backgroundColor = "red"                   
+                }
+
 
 
         } else {
@@ -54,13 +73,7 @@ var withdrawFromAccount = function(withdrawAccount, linkedAccount, amount) {
      }
 }
 
-console.log("start a0 balance " + a0.balance)
-console.log("start a1 balance " +a1.balance)   
-depositToAccount(a0, 100);
-withdrawFromAccount(a1, a0, 650);
 
-console.log("end a0 balance " + a0.balance)
-console.log("end a1 balance " +a1.balance)   
 
 
 

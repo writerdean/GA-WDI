@@ -19,10 +19,15 @@
             <div class="savings">
                 <div class="account-name account-box"><p>Savings Account</p></div>
                 <div class="account-box"><p>Your balance is:</p></div>
-                
-                <div class="balance account-box result-div"></div>
+
+                <!-- Below displays the current balance -->
+                <div class="balance account-box balance-savings"></div>
+
                 <!-- Below is a user input -->
-                <div class="amount account-box">amount to withdraw or deposit</div>
+                <div class="account-box">
+                    <input type = "number" class="amountSavings">
+                </div>
+
                 <div class="btn-group">
                     <button class="withdraw">Withdraw</button>
                     <button class="deposit">Deposit</button>
@@ -30,15 +35,21 @@
 
             </div>
             <div class="checking">
-                    <div class="account-name account-box"><p>Checking Account</p></div>
-                    <div class="account-box"><p>Your balance is:</p></div>
-                    <div class="balance account-box result-div"></div>
-                    <!-- <div class="amount account-box">amount to withdraw or deposit</div> -->
-                    <input type = "number" class="amount">
-                    <div class="btn-group">
-                            <button class="withdraw-btn">Withdraw</button>
-                            <button class="deposit-btn">Deposit</button>
-                        </div>
+                <div class="account-name account-box"><p>Savings Account</p></div>
+                <div class="account-box"><p>Your balance is:</p></div>
+
+                <!-- Below displays the current balance -->
+                <div class="balance account-box balance-checking"></div>
+
+                <!-- Below is a user input -->
+                <div class="account-box">
+                    <input type = "number" class="amountChecking">
+                </div>
+                
+                <div class="btn-group">
+                    <button class="withdraw">Withdraw</button>
+                    <button class="deposit">Deposit</button>
+                </div>
             </div>
 
         </div>
