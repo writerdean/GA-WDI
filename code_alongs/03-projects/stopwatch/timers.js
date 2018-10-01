@@ -3,12 +3,13 @@
 // XXXInstantiate seconds and timerId variables for your timer. The latter will make more sense after reading up on setInterval().
 // XXXCreate an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
 
-// Inside your click handler for the start button...
-// Replace "Stop Watch" in the HTML with the content of the seconds variable.
-// Use setInterval() to increment the timer by 1 every second.
+// XXXInside your click handler for the start button...
+// XXXReplace "Stop Watch" in the HTML with the content of the seconds variable.
+// XXXUse setInterval() to increment the timer by 1 every second.
 
 // Inside your click handler for the pause button...
 // Stop -- but do not reset! -- the timer using clearInterval().
+
 // Once again, inside your click handler for the start button...
 // Make sure the timer starts back up when you hit the "Start" button after hitting "Pause".
 
@@ -23,7 +24,7 @@ var pause = document.querySelector(".pause")
 var timer = document.querySelector(".timer")
 
 var seconds = 0;
-var timerId = setInterval(updateTime, 1000);
+var timerId;
 
 var updateTime = function() {
     seconds++
@@ -31,16 +32,22 @@ var updateTime = function() {
 }
 
 var startTimer = function() {
-    // timer.textContent = 'Time elapsed: ' + seconds;
-    setInterval(updateTime, 1000)
+    timer.textContent = 'Time elapsed: ' + seconds;
+    timerId = setInterval(updateTime, 1000);
+}
+
+var pauseTimer = function() {
+    clearInterval(timerId)
+}
+
+var resetTimer = function() {
+    clearInterval(timerId)
+    seconds = 0;
+    timer.textContent = 'Stop Watch';    
 }
 
 
-  
-
-
 start.addEventListener('click', startTimer)
-// reset.addEventListener('click', resetTimer)
-// pause.addEventListener('click', pauseTimer)
+reset.addEventListener('click', resetTimer)
+pause.addEventListener('click', pauseTimer)
 
-// t = setInterval(updateTime, 1000);
