@@ -8,13 +8,12 @@
 
 }
 .main {
-      border: 3px solid black;
       height: 75%;;
       width: 100%;
   }
 .left {
       text-align: center;
-      border-right: 3px solid black;
+      border: 3px solid black;
       width: 50%;
   }
     .board {
@@ -47,7 +46,7 @@
       width: 50%;
   }
   .one {
-      margin-top: 0;
+    margin: auto;
     height: 75%;
     text-align: center;
     color: yellow;
@@ -56,9 +55,28 @@
     font-size: 72px;
     font-weight: 900;
   }
+  .one p {
+      margin-top: 0;
+  }
   .two {
     height: 25%;
     text-align: center;
     background-color: lightgrey;
     padding: 25px;
   }
+  .player-active {
+    border: 15px solid blue;
+    }
+
+    p.hidden {
+        visibility: hidden;
+    }
+    p.active {
+        visibility: visible;
+    }
+
+    .P1C {
+        font-family: 'Limelight';
+        font-size: 72px;
+        font-weight: 900;
+    }

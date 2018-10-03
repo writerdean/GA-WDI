@@ -15,21 +15,21 @@
         <div class="left">
             <div class="board">
                 <div class="flex-container row-one">
-                    <div class="square col-one"></div>
-                    <div class="square col-two"></div>
-                    <div class="square col-three"></div>
+                    <div class="square col-one" id='R1C1' onClick="replyClick(this.id)"></div>
+                    <div class="square col-two" id='R1C2' onClick="replyClick(this.id)"></div>
+                    <div class="square col-three" id='R1C3' onClick="replyClick(this.id)"></div>
                 </div>
         
                 <div class="flex-container row-two">
-                    <div class="square col-one"></div>
-                    <div class="square col-two"></div>
-                    <div class="square col-three"></div>
+                    <div class="square col-one" id='R2C1' onClick="replyClick(this.id)"></div>
+                    <div class="square col-two" id='R2C2' onClick="replyClick(this.id)"></div>
+                    <div class="square col-three" id='R2C3' onClick="replyClick(this.id)"></div>
                 </div>
         
                 <div class="flex-container row-three">
-                    <div class="square col-one"></div>
-                    <div class="square col-two"></div>
-                    <div class="square col-three"></div>
+                    <div class="square col-one" id='R3C1' onClick="replyClick(this.id)"></div>
+                    <div class="square col-two" id='R3C2' onClick="replyClick(this.id)"></div>
+                    <div class="square col-three" id='R3C3' onClick="replyClick(this.id)"></div>
                 </div>
             </div>
 
@@ -38,14 +38,14 @@
 
         <div class="right">
 
-            <div class="player one">
-                <p>READY<br>PLAYER<br>ONE</p>
+            <div class="player one player-active">
+                <p class='active'>READY<br>PLAYER<br>ONE</p>
 
             </div>
 
 
             <div class="player two">
-                <p>ok, you can go now</p>
+                <p class='active'>ok, player 2, you can go now</p>
 
             </div>
 
