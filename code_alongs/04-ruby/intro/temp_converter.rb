@@ -8,28 +8,32 @@ puts 'Is that in fahrenheit(f), Celsius(C) or Kelvin(K)?'
 unit = gets
 
 
+# def convert_temp(temp, unit)
+
   if unit.chomp == "f"
     celcius = (temp.to_i - 32) / 1.8
-    kelvin = (temp.to_i + 459.67) / 1.8
+    kelvin = ((temp.to_i + 459.67) / 1.8).round(2)
     puts 'fahrenheit: ' + temp
     puts "to Celsius:  #{celcius}"
     puts "to Kelvin:  #{kelvin}"
-
+  
   elsif unit.chomp == "C"
     fahrenheit = (temp.to_i * 1.8) + 32
     kelvin = temp.to_i  + 273.15
     puts 'Celcius: ' + temp
     puts "to fahrenheit: #{fahrenheit}"
     puts "to Kelvin:  #{kelvin}"
-
+  
   else
     fahrenheit = (temp.to_i * 1.8) - 459.67
     celcius = temp.to_i - 273.15
     puts 'Kelvin: ' + temp
     puts "to Celsius:  #{celcius}"
     puts "to fahrenheit: #{fahrenheit}"
+  
+  end
+# end
 
-end
 
 # Each conditional block should convert the starting temperature to its equivalent value in the other two units (e.g., f should be converted to C and K).
 
