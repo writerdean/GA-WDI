@@ -1,0 +1,19 @@
+/* Create 3 boxes (divs) in an html file, give them a border of 1px solid black and a height and width of 100px, so you can see them. */
+
+* {
+    box-sizing: border-box;
+}
+
+.box-container div {
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
