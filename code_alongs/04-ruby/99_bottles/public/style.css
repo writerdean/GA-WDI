@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  display: flex;
+  background: linear-gradient(to bottom, rgba(255, 221, 225,0), rgba(238, 156, 167,1));
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  font-size: 42px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+

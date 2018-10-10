@@ -45,11 +45,11 @@ loop do
     if (sentence == 'bye')
       break
     end
-    if sentence.include? "?"
+  if sentence == ""
+    puts 'Fine. Be that way!'
+  elsif sentence.include? "?"
       puts 'Sure.'
-    elsif sentence == ""
-      puts 'Fine. Be that way!'
-    elsif sentence.upcase == sentence
+  elsif sentence.upcase == sentence
       puts 'Whoh, chill out!'
     else puts 'Whatever'
     end
